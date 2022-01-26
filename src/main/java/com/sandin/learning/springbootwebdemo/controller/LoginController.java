@@ -35,8 +35,10 @@ public class LoginController {
 
         boolean isValidUser = service.validateUser(name, password);
 
-        if (!isValidUser)
+        if (!isValidUser){
+            model.put("message", "invalid credentials.!");
             return "login";
+        }
 
         model.put("name", name);
         model.put("password", password);
